@@ -124,18 +124,8 @@ export default function ProductClient({ id }: { id: string }) {
         }
       `}</style>
       
-      {/* Header containing the logo */}
-      <header className="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-900 animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
-        <Link href="/" className="flex items-center">
-          <Image 
-            src="/logo.png" 
-            alt="HAVENS Logo" 
-            width={110} 
-            height={36} 
-            className="h-9 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
-            priority
-          />
-        </Link>
+      {/* Header */}
+      <header className="w-full max-w-7xl mx-auto px-6 py-8 flex justify-end items-center border-b border-zinc-900 animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
         <Link href="/" className="text-[10px] font-mono text-zinc-500 hover:text-zinc-300 transition-colors flex items-center gap-1.5 uppercase tracking-wider">
           <ArrowLeft className="w-3.5 h-3.5" /> BACK TO CATALOG
         </Link>
@@ -223,6 +213,29 @@ export default function ProductClient({ id }: { id: string }) {
 
       {/* Footer */}
       <footer className="w-full max-w-7xl mx-auto px-6 py-12 border-t border-zinc-900 text-center animate-fade-in" style={{ animationDelay: '900ms', animationFillMode: 'both' }}>
+        <div className="flex justify-center mb-6">
+          <a 
+            href="https://www.instagram.com/havens.___?igsh=MXU3dmo4cGhqbDY0OQ==" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-[10px] font-mono text-zinc-500 hover:text-zinc-350 transition-colors uppercase tracking-[0.2em] flex items-center gap-1.5"
+          >
+            <svg 
+              className="w-3.5 h-3.5" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            Instagram
+          </a>
+        </div>
         <p className="text-[10px] font-mono text-zinc-650 text-zinc-600 uppercase tracking-[0.2em]">
           © {new Date().getFullYear()} HAVENS. All rights reserved.
         </p>

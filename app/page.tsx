@@ -116,20 +116,7 @@ export default function HavensEcommerce() {
         }
       `}</style>
 
-      {/* Header containing the logo */}
-      <header className="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-900 animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="HAVENS Logo"
-            width={110}
-            height={36}
-            className="h-9 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
-            priority
-          />
-        </Link>
-        <span className="text-[10px] font-mono tracking-[0.2em] text-zinc-500 uppercase">Est. 2026</span>
-      </header>
+
 
       {/* Hero Section */}
       <main className="w-full max-w-7xl mx-auto px-6 pt-20 pb-24 flex flex-col items-center">
@@ -140,9 +127,9 @@ export default function HavensEcommerce() {
             <Image 
               src="/logo.png" 
               alt="HAVENS Logo" 
-              width={450} 
-              height={150} 
-              className="h-24 sm:h-32 md:h-36 w-auto object-contain opacity-95"
+              width={560} 
+              height={180} 
+              className="h-52 sm:h-44 md:h-68 w-auto object-contain opacity-95"
               priority
             />
           </div>
@@ -237,10 +224,28 @@ export default function HavensEcommerce() {
 
         {/* Footer */}
         <footer className="mt-28 w-full text-center border-t border-zinc-900 pt-12 animate-fade-in" style={{ animationDelay: '1650ms', animationFillMode: 'both' }}>
-          <div className="flex justify-center space-x-1.5 mb-6">
-            <div className="w-1 h-1 bg-zinc-700 rounded-full"></div>
-            <div className="w-1 h-1 bg-zinc-600 rounded-full"></div>
-            <div className="w-1 h-1 bg-zinc-700 rounded-full"></div>
+          <div className="flex justify-center mb-6">
+            <a 
+              href="https://www.instagram.com/havens.___?igsh=MXU3dmo4cGhqbDY0OQ==" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[10px] font-mono text-zinc-500 hover:text-zinc-350 transition-colors uppercase tracking-[0.2em] flex items-center gap-1.5"
+            >
+              <svg 
+                className="w-3.5 h-3.5" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              Instagram
+            </a>
           </div>
           <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em]">
             © {new Date().getFullYear()} HAVENS. All rights reserved.
