@@ -96,9 +96,37 @@ export default function ProductClient({ id }: { id: string }) {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-rose-500/20 selection:text-rose-200">
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(16px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        .animate-fade-in-up {
+          opacity: 0;
+          animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-fade-in {
+          opacity: 0;
+          animation: fadeIn 0.8s ease-out forwards;
+        }
+      `}</style>
       
       {/* Header containing the logo */}
-      <header className="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-900">
+      <header className="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-900 animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
         <Link href="/" className="flex items-center">
           <Image 
             src="/logo.png" 
@@ -118,7 +146,7 @@ export default function ProductClient({ id }: { id: string }) {
       <main className="w-full max-w-6xl mx-auto px-6 py-12 sm:py-20 flex flex-col md:flex-row gap-10 lg:gap-16">
         
         {/* Image Container */}
-        <div className="w-full md:w-1/2 aspect-square relative rounded-lg overflow-hidden bg-zinc-950 border border-zinc-900">
+        <div className="w-full md:w-1/2 aspect-square relative rounded-lg overflow-hidden bg-zinc-950 border border-zinc-900 animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
           <Image 
             src={product.image}
             alt={product.name}
@@ -127,38 +155,35 @@ export default function ProductClient({ id }: { id: string }) {
             sizes="(max-width: 768px) 100vw, 50vw"
             priority
           />
-          <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-zinc-900/90 backdrop-blur-md flex items-center justify-center text-lg border border-zinc-800">
-            {product.icon}
-          </div>
         </div>
 
         {/* Info Container */}
         <div className="w-full md:w-1/2 flex flex-col justify-between py-2">
           <div>
-            <nav className="text-[10px] text-zinc-500 font-mono mb-4 flex items-center gap-2 uppercase tracking-wider">
+            <nav className="text-[10px] text-zinc-500 font-mono mb-4 flex items-center gap-2 uppercase tracking-wider animate-fade-in-up" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
               <Link href="/" className="hover:text-zinc-300 font-medium">HAVENS</Link>
               <span>/</span>
               <span className="text-zinc-400">{product.name}</span>
             </nav>
 
-            <h1 className="text-2xl sm:text-3xl font-light tracking-widest text-white uppercase mb-3">
+            <h1 className="text-2xl sm:text-3xl font-light tracking-widest text-white uppercase mb-3 animate-fade-in-up" style={{ animationDelay: '380ms', animationFillMode: 'both' }}>
               {product.name}
             </h1>
 
-            <div className="flex items-baseline gap-1.5 mb-6">
+            <div className="flex items-baseline gap-1.5 mb-6 animate-fade-in-up" style={{ animationDelay: '460ms', animationFillMode: 'both' }}>
               {product.prefix && <span className="text-[10px] uppercase tracking-wider text-zinc-500 font-mono">{product.prefix}</span>}
               <span className="text-lg font-mono text-zinc-300">₹{product.price}</span>
               <span className="text-[10px] text-zinc-500 ml-2 font-light tracking-wide">(shipping charges calculated at checkout)</span>
             </div>
 
-            <div className="h-[1px] bg-zinc-900 mb-6"></div>
+            <div className="h-[1px] bg-zinc-900 mb-6 animate-fade-in" style={{ animationDelay: '540ms', animationFillMode: 'both' }}></div>
 
-            <p className="text-zinc-400 text-sm font-light leading-relaxed mb-8">
+            <p className="text-zinc-400 text-sm font-light leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
               {product.longDesc}
             </p>
 
             {product.includes.length > 0 && (
-              <div className="mb-10">
+              <div className="mb-10 animate-fade-in-up" style={{ animationDelay: '680ms', animationFillMode: 'both' }}>
                 <h3 className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-mono mb-4 flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-rose-400/80" /> WHAT'S INSIDE THE CHEST:
                 </h3>
@@ -174,7 +199,7 @@ export default function ProductClient({ id }: { id: string }) {
             )}
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 animate-fade-in-up" style={{ animationDelay: '780ms', animationFillMode: 'both' }}>
             {ordered ? (
               <div className="p-3.5 rounded border border-rose-900/30 bg-rose-950/20 text-center text-xs font-mono text-rose-350 tracking-wider uppercase animate-pulse">
                 🎁 WhatsApp Ordering Simulation Triggered!
@@ -205,8 +230,8 @@ export default function ProductClient({ id }: { id: string }) {
       </main>
 
       {/* Footer */}
-      <footer className="w-full max-w-7xl mx-auto px-6 py-12 border-t border-zinc-900 text-center">
-        <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em]">
+      <footer className="w-full max-w-7xl mx-auto px-6 py-12 border-t border-zinc-900 text-center animate-fade-in" style={{ animationDelay: '900ms', animationFillMode: 'both' }}>
+        <p className="text-[10px] font-mono text-zinc-650 text-zinc-600 uppercase tracking-[0.2em]">
           © {new Date().getFullYear()} HAVENS. All rights reserved.
         </p>
       </footer>

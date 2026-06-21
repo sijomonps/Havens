@@ -75,9 +75,49 @@ const products = [
 export default function HavensEcommerce() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-rose-500/20 selection:text-rose-200">
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        @keyframes expandWidth {
+          from {
+            width: 0;
+          }
+          to {
+            width: 2rem;
+          }
+        }
+        .animate-fade-in-up {
+          opacity: 0;
+          animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-fade-in {
+          opacity: 0;
+          animation: fadeIn 1s ease-out forwards;
+        }
+        .animate-expand-width {
+          width: 0;
+          animation: expandWidth 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+      `}</style>
       
       {/* Header containing the logo */}
-      <header className="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-900">
+      <header className="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-900 animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
         <Link href="/" className="flex items-center">
           <Image 
             src="/logo.png" 
@@ -95,22 +135,22 @@ export default function HavensEcommerce() {
       <main className="w-full max-w-7xl mx-auto px-6 pt-20 pb-24 flex flex-col items-center">
         
         <div className="text-center mb-20 max-w-xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-[0.15em] text-white uppercase mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-[0.15em] text-white uppercase mb-6 animate-fade-in-up" style={{ animationDelay: '250ms', animationFillMode: 'both' }}>
             HAVENS
           </h1>
-          <div className="w-8 h-[1px] bg-rose-400 mx-auto mb-6"></div>
+          <div className="h-[1px] bg-rose-400 mx-auto mb-6 animate-expand-width" style={{ animationDelay: '450ms', animationFillMode: 'both' }}></div>
           
-          <p className="text-sm sm:text-base text-zinc-400 font-light leading-relaxed mb-4">
+          <p className="text-sm sm:text-base text-zinc-400 font-light leading-relaxed mb-4 animate-fade-in-up" style={{ animationDelay: '550ms', animationFillMode: 'both' }}>
             We curate thoughtfully designed, beautiful, and affordable gift boxes and customized surprises to celebrate your loved ones.
           </p>
           
-          <p className="text-xs font-mono text-rose-400/90 tracking-widest uppercase">
+          <p className="text-xs font-mono text-rose-400/90 tracking-widest uppercase animate-fade-in-up" style={{ animationDelay: '650ms', animationFillMode: 'both' }}>
             Gifts aren't just given—they become memories.
           </p>
         </div>
 
         {/* Collections Header */}
-        <div className="w-full mb-12">
+        <div className="w-full mb-12 animate-fade-in" style={{ animationDelay: '800ms', animationFillMode: 'both' }}>
           <div className="flex items-center justify-center gap-4">
             <div className="h-[1px] bg-zinc-900 flex-1 max-w-[80px]"></div>
             <h2 className="text-[10px] font-mono text-zinc-400 uppercase tracking-[0.25em]">OUR COLLECTIONS</h2>
@@ -120,12 +160,13 @@ export default function HavensEcommerce() {
 
         {/* Products Grid */}
         <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-10">
-          {products.map((product) => {
+          {products.map((product, index) => {
             return (
               <Link 
                 key={product.id} 
                 href={`/product/${product.id}`} 
-                className="group flex flex-col justify-between bg-zinc-900/10 border border-zinc-900 rounded-lg p-3 sm:p-5 hover:border-zinc-800 transition-all duration-300 hover:-translate-y-1"
+                className="group flex flex-col justify-between bg-zinc-900/10 border border-zinc-900 rounded-lg p-3 sm:p-5 hover:border-zinc-800 transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
+                style={{ animationDelay: `${900 + index * 80}ms`, animationFillMode: 'both' }}
               >
                 <div>
                   {/* Product Image */}
@@ -138,9 +179,6 @@ export default function HavensEcommerce() {
                       sizes="(max-width: 768px) 50vw, 33vw"
                       priority
                     />
-                    <div className="absolute top-2.5 left-2.5 w-7 h-7 rounded-full bg-zinc-900/90 backdrop-blur-md flex items-center justify-center text-sm border border-zinc-800">
-                      {product.icon}
-                    </div>
                   </div>
 
                   <div className="flex justify-between items-start mb-1">
@@ -149,7 +187,7 @@ export default function HavensEcommerce() {
                   
                   <div className="flex items-baseline gap-1 mb-2">
                     {product.prefix && <span className="text-[8px] uppercase tracking-wider text-zinc-500 font-mono">{product.prefix}</span>}
-                    <span className="text-xs sm:text-sm font-mono text-rose-450 text-zinc-400">₹{product.price}</span>
+                    <span className="text-xs sm:text-sm font-mono text-zinc-400">₹{product.price}</span>
                   </div>
 
                   <p className="text-[11px] sm:text-xs text-zinc-500 mb-4 font-light leading-relaxed line-clamp-2">{product.desc}</p>
@@ -167,7 +205,7 @@ export default function HavensEcommerce() {
         </div>
 
         {/* Notes Section */}
-        <div className="mt-24 w-full max-w-2xl">
+        <div className="mt-24 w-full max-w-2xl animate-fade-in" style={{ animationDelay: '1500ms', animationFillMode: 'both' }}>
           <div className="border border-zinc-900 rounded-lg p-6 sm:p-8 bg-zinc-950">
             <div className="flex items-start gap-4">
               <Info className="w-4 h-4 text-zinc-500 shrink-0 mt-0.5" />
@@ -190,10 +228,10 @@ export default function HavensEcommerce() {
         </div>
 
         {/* Footer */}
-        <footer className="mt-28 w-full text-center border-t border-zinc-900 pt-12">
+        <footer className="mt-28 w-full text-center border-t border-zinc-900 pt-12 animate-fade-in" style={{ animationDelay: '1650ms', animationFillMode: 'both' }}>
           <div className="flex justify-center space-x-1.5 mb-6">
             <div className="w-1 h-1 bg-zinc-700 rounded-full"></div>
-            <div className="w-1 h-1 bg-zinc-650 bg-zinc-600 rounded-full"></div>
+            <div className="w-1 h-1 bg-zinc-600 rounded-full"></div>
             <div className="w-1 h-1 bg-zinc-700 rounded-full"></div>
           </div>
           <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em]">
@@ -205,4 +243,3 @@ export default function HavensEcommerce() {
     </div>
   );
 }
-
