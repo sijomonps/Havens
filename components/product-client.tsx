@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Sparkles, MessageCircle, Info, Check } from 'lucide-react';
@@ -81,7 +81,6 @@ const products = [
 
 export default function ProductClient({ id }: { id: string }) {
   const product = products.find(p => p.id === id);
-  const [ordered, setOrdered] = useState(false);
 
   if (!product) {
     return (
@@ -200,22 +199,15 @@ export default function ProductClient({ id }: { id: string }) {
           </div>
 
           <div className="space-y-4 animate-fade-in-up" style={{ animationDelay: '780ms', animationFillMode: 'both' }}>
-            {ordered ? (
-              <div className="p-3.5 rounded border border-rose-900/30 bg-rose-950/20 text-center text-xs font-mono text-rose-350 tracking-wider uppercase animate-pulse">
-                🎁 WhatsApp Ordering Simulation Triggered!
-              </div>
-            ) : (
-              <button 
-                onClick={() => {
-                  setOrdered(true);
-                  setTimeout(() => setOrdered(false), 3000);
-                }}
-                className="w-full py-4 rounded bg-zinc-100 hover:bg-zinc-200 text-zinc-950 font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <MessageCircle className="w-4 h-4 fill-current" />
-                <span>Order via WhatsApp</span>
-              </button>
-            )}
+            <a 
+              href={`https://wa.me/919745497104?text=${encodeURIComponent(`Hi, I would like to order the ${product.name} from Havens.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 rounded bg-zinc-100 hover:bg-zinc-200 text-zinc-950 font-mono text-xs uppercase tracking-[0.15em] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-center"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Order via WhatsApp</span>
+            </a>
 
             <div className="border border-zinc-900 rounded p-4 flex gap-3 text-[11px] text-zinc-500 font-light">
               <Info className="w-4 h-4 text-zinc-500 shrink-0 mt-0.5" />

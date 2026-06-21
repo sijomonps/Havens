@@ -6,69 +6,69 @@ import Image from 'next/image';
 import { Info, Package, Sparkles, ArrowRight } from 'lucide-react';
 
 const products = [
-  { 
+  {
     id: "petal-pop",
-    name: "PETAL POP", 
-    price: 299, 
-    icon: "🌸", 
+    name: "PETAL POP",
+    price: 299,
+    icon: "🌸",
     image: "/product images/Petal box.jpeg",
-    desc: "A cute little surprise for someone special.", 
-    includes: ["Chocolates", "Scrunchie", "Hair Clip", "Polaroid Prints"] 
+    desc: "A cute little surprise for someone special.",
+    includes: ["Chocolates", "Scrunchie", "Hair Clip", "Polaroid Prints"]
   },
-  { 
+  {
     id: "blush-box",
-    name: "BLUSH BOX", 
-    price: 359, 
-    icon: "🎀", 
+    name: "BLUSH BOX",
+    price: 359,
+    icon: "🎀",
     image: "/product images/blush box.jpeg",
-    desc: "Thoughtfully curated for everyday celebrations.", 
-    includes: ["Scrunchie", "Hair Clip", "Chocolates", "Wishes Card", "Premium Packaging"] 
+    desc: "Thoughtfully curated for everyday celebrations.",
+    includes: ["Scrunchie", "Hair Clip", "Chocolates", "Wishes Card", "Premium Packaging"]
   },
-  { 
+  {
     id: "frame-box",
-    name: "FRAME BOX", 
-    price: 349, 
-    icon: "🖼️", 
+    name: "FRAME BOX",
+    price: 349,
+    icon: "🖼️",
     image: "/product images/Frame Box.jpeg",
-    desc: "Because some moments deserve a frame.", 
-    includes: ["Customized Photo Frame", "Polaroid Prints", "Chocolates", "Personalized Message Card"] 
+    desc: "Because some moments deserve a frame.",
+    includes: ["Customized Photo Frame", "Polaroid Prints", "Chocolates", "Personalized Message Card"]
   },
-  { 
+  {
     id: "memory-box",
-    name: "MEMORY BOX", 
-    price: 499, 
-    icon: "🤍", 
+    name: "MEMORY BOX",
+    price: 499,
+    icon: "🤍",
     image: "/product images/Memory Box.jpeg",
-    desc: "A box filled with memories and love.", 
-    includes: ["Customized Photo Frame", "Polaroid Prints", "Mini Perfume", "Chocolates", "Personalized Message Card", "Premium Packaging"] 
+    desc: "A box filled with memories and love.",
+    includes: ["Customized Photo Frame", "Polaroid Prints", "Mini Perfume", "Chocolates", "Personalized Message Card", "Premium Packaging"]
   },
-  { 
+  {
     id: "for-him",
-    name: "FOR HIM", 
-    price: 649, 
-    icon: "🧸", 
+    name: "FOR HIM",
+    price: 649,
+    icon: "🧸",
     image: "/product images/For Him.jpeg",
-    desc: "A thoughtful gift curated just for him.", 
-    includes: ["T-Shirt", "Perfume", "Skincare Essential", "Personalized Message Card", "Premium Packaging", "Bouquet"] 
+    desc: "A thoughtful gift curated just for him.",
+    includes: ["T-Shirt", "Perfume", "Skincare Essential", "Personalized Message Card", "Premium Packaging", "Bouquet"]
   },
-  { 
+  {
     id: "dream-box",
-    name: "DREAM BOX", 
-    price: 699, 
-    icon: "✨", 
+    name: "DREAM BOX",
+    price: 699,
+    icon: "✨",
     image: "/product images/For Her.jpeg",
-    desc: "A dreamy collection of little joys.", 
-    includes: ["Mini Perfume", "Jewelry Piece", "Hair Accessories", "Skincare Essential", "Chocolates", "Polaroid Prints", "Personalized Message Card", "Premium Packaging", "Flowers/Bouquet"] 
+    desc: "A dreamy collection of little joys.",
+    includes: ["Mini Perfume", "Jewelry Piece", "Hair Accessories", "Skincare Essential", "Chocolates", "Polaroid Prints", "Personalized Message Card", "Premium Packaging", "Flowers/Bouquet"]
   },
-  { 
+  {
     id: "custom-gifts",
-    name: "CUSTOM GIFTS", 
-    price: 199, 
-    prefix: "Starting from", 
-    icon: "🎁", 
+    name: "CUSTOM GIFTS",
+    price: 199,
+    prefix: "Starting from",
+    icon: "🎁",
     image: "/product images/custom-gifts.png",
-    desc: "Customized according to your budget, preferences, and occasion.", 
-    includes: [] 
+    desc: "Customized according to your budget, preferences, and occasion.",
+    includes: []
   },
 ];
 
@@ -115,15 +115,15 @@ export default function HavensEcommerce() {
           animation: expandWidth 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
       `}</style>
-      
+
       {/* Header containing the logo */}
       <header className="w-full max-w-7xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-900 animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
         <Link href="/" className="flex items-center">
-          <Image 
-            src="/logo.png" 
-            alt="HAVENS Logo" 
-            width={110} 
-            height={36} 
+          <Image
+            src="/logo.png"
+            alt="HAVENS Logo"
+            width={110}
+            height={36}
             className="h-9 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
             priority
           />
@@ -133,17 +133,25 @@ export default function HavensEcommerce() {
 
       {/* Hero Section */}
       <main className="w-full max-w-7xl mx-auto px-6 pt-20 pb-24 flex flex-col items-center">
-        
+
         <div className="text-center mb-20 max-w-xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-[0.15em] text-white uppercase mb-6 animate-fade-in-up" style={{ animationDelay: '250ms', animationFillMode: 'both' }}>
-            HAVENS
-          </h1>
-          <div className="h-[1px] bg-rose-400 mx-auto mb-6 animate-expand-width" style={{ animationDelay: '450ms', animationFillMode: 'both' }}></div>
-          
+          <h1 className="sr-only">HAVENS</h1>
+          <div className="flex justify-center mb-8 animate-fade-in-up" style={{ animationDelay: '250ms', animationFillMode: 'both' }}>
+            <Image 
+              src="/logo.png" 
+              alt="HAVENS Logo" 
+              width={450} 
+              height={150} 
+              className="h-24 sm:h-32 md:h-36 w-auto object-contain opacity-95"
+              priority
+            />
+          </div>
+          <div className="h-[1px] bg-rose-400 mx-auto mb-8 animate-expand-width" style={{ animationDelay: '450ms', animationFillMode: 'both' }}></div>
+
           <p className="text-sm sm:text-base text-zinc-400 font-light leading-relaxed mb-4 animate-fade-in-up" style={{ animationDelay: '550ms', animationFillMode: 'both' }}>
             We curate thoughtfully designed, beautiful, and affordable gift boxes and customized surprises to celebrate your loved ones.
           </p>
-          
+
           <p className="text-xs font-mono text-rose-400/90 tracking-widest uppercase animate-fade-in-up" style={{ animationDelay: '650ms', animationFillMode: 'both' }}>
             Gifts aren't just given—they become memories.
           </p>
@@ -162,17 +170,17 @@ export default function HavensEcommerce() {
         <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-10">
           {products.map((product, index) => {
             return (
-              <Link 
-                key={product.id} 
-                href={`/product/${product.id}`} 
+              <Link
+                key={product.id}
+                href={`/product/${product.id}`}
                 className="group flex flex-col justify-between bg-zinc-900/10 border border-zinc-900 rounded-lg p-3 sm:p-5 hover:border-zinc-800 transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
                 style={{ animationDelay: `${900 + index * 80}ms`, animationFillMode: 'both' }}
               >
                 <div>
                   {/* Product Image */}
                   <div className="relative w-full aspect-square rounded-md overflow-hidden bg-zinc-950 mb-4 border border-zinc-900">
-                    <Image 
-                      src={product.image} 
+                    <Image
+                      src={product.image}
                       alt={product.name}
                       fill
                       className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
@@ -184,7 +192,7 @@ export default function HavensEcommerce() {
                   <div className="flex justify-between items-start mb-1">
                     <h3 className="text-xs sm:text-sm font-medium tracking-wider text-zinc-200 group-hover:text-white transition-colors uppercase">{product.name}</h3>
                   </div>
-                  
+
                   <div className="flex items-baseline gap-1 mb-2">
                     {product.prefix && <span className="text-[8px] uppercase tracking-wider text-zinc-500 font-mono">{product.prefix}</span>}
                     <span className="text-xs sm:text-sm font-mono text-zinc-400">₹{product.price}</span>
@@ -192,7 +200,7 @@ export default function HavensEcommerce() {
 
                   <p className="text-[11px] sm:text-xs text-zinc-500 mb-4 font-light leading-relaxed line-clamp-2">{product.desc}</p>
                 </div>
-                
+
                 <div className="mt-auto">
                   <div className="w-full py-2 px-3 rounded bg-transparent group-hover:bg-zinc-100 text-[10px] text-zinc-400 group-hover:text-zinc-950 border border-zinc-900 group-hover:border-zinc-100 transition-all duration-300 flex items-center justify-center gap-1 font-mono uppercase tracking-wider">
                     <span>View Details</span>
